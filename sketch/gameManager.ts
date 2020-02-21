@@ -34,7 +34,7 @@ class GameManager {
 
         this.arrayIndex = 0
         this.selectedAvatar = avatar.redAvatar
-        this.selectedItemBox = ['Selected Red theme', 'Selected Blue theme', 'Selected Green theme']
+        this.selectedItemBox = ['Red avatar selected', 'Blue avatar selected', 'Green avatar selected']
 
         this.redAvatarButton.setAvatar(avatar.redAvatar)
         this.blueAvatarButton.setAvatar(avatar.blueAvatar)
