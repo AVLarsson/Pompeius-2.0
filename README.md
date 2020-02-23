@@ -9,7 +9,7 @@ Run the command `npm i` to install important modules (p5, typescript, etc). Th
 
 A Puzzle game we made, as a schoolproject, using typescript and the p5 library. Pictures are randomly picked and sliced that the player must stop within a frame. You are greeted with a main menu were you have to type a username and pick an avatar. Your name is later displayed besides the game and in a highscore-table when the game is over. The "slices" moves diagonally across the screen. On each level the number of slices increases, and so does the speed. You have 3 lives, if you lose all lives the game ends.
 
-- This version Pompeius-2.0 has some small changes. I was trying to make different color themes. It runs but it´s not optimal. See known issues below. 
+-This version Pompeius-2.0 has some small changes. I was trying to make different color themes. It runs but it´s not optimal. See known issues below. 
 
 Known issues: 
     - Method for color theme is called from within gameManager but should actually be called from theme. 
