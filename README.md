@@ -12,8 +12,11 @@ A Puzzle game we made, as a schoolproject, using typescript and the p5 library. 
 -This version Pompeius-2.0 has some small changes. I was trying to make different color themes. It runs but it´s not optimal. See known issues below. 
 
 Known issues: 
+
     - Method for color theme is called from within gameManager but should actually be called from theme. 
+
     - Method is called every frame update.
+    
     - Issues calling gameManager from other class. Stack limit reached.
 
 //Annie
