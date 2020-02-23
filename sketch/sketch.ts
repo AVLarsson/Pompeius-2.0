@@ -12,6 +12,8 @@ let isImageLoaded: boolean
 let gameManager: GameManager
 let avatar : Avatar
 
+let theme: Theme
+
 /**
  * Built in preload function in P5
  * This is a good place to load assets such as
@@ -42,7 +44,9 @@ function setup() {
     gameManager = new GameManager()
     playerSettings = new PlayerSettings()
     musicChoice = new MusicChoice()
+    theme = new Theme()
     musicChoice.createSelector()
+    // theme.createSelector()
 }
 
 /**

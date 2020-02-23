@@ -1,0 +1,12 @@
+avatar.ts
+button.ts
+gameManager.ts
+gamePage.ts
+gameStatus.ts
+playerSettings.ts
+scoreTable.ts
+segmentedMedia.ts
+sketch.ts
+sound_fx.ts
+theme.ts
+themeMusic.ts

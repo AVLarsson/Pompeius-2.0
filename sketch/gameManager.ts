@@ -19,6 +19,8 @@ class GameManager {
     private selectedAvatar: p5.Image
     private selectedItemBox: string[]
     private arrayIndex: number
+    
+    private theme: Theme
 
     constructor() {
         this.playerSettings = new PlayerSettings()
@@ -45,6 +47,9 @@ class GameManager {
 
         this.scoreTable = new ScoreTable()
         this.userScore = 0
+
+        this.theme = new Theme()
+
     }
 
     /**Draws the HomePage */
@@ -67,7 +72,7 @@ class GameManager {
 
         //draws the score table
         this.scoreTable.draw()
-        fill('white')
+        fill(this.textFillUpdate())
 
         if (this.userScore > 0) {
             text('Your score: ' + this.userScore, (windowWidth / 2), (windowHeight * 0.75))
@@ -79,7 +84,7 @@ class GameManager {
 
         //draws the text at end of game
         textSize(30)
-        fill('green')
+        fill(this.textFillUpdate())
         textFont('Quintessential')
         if (this.gamePage.checkIfGameIsComplete() && (this.gamePage.checkLevel() === 15)) {
             text('Congratulation! You finished all the levels!! Good Job!', (windowWidth / 2), (windowHeight * 0.7))
@@ -102,9 +107,9 @@ class GameManager {
     /**Draws the main page structure and determines which page is to be drawn*/
     public draw() {
 
-        background(0)
+        background(this.backgroundUpdate())
         textSize(60)
-        fill('red')
+        fill(this.textFillUpdate())
         textAlign(CENTER, CENTER)
         strokeWeight(0)
         textFont('Quintessential')
@@ -191,5 +196,28 @@ class GameManager {
         this.selectedAvatar = avatar.greenAvatar
     }
 
+    private backgroundUpdate(){
+        if (this.selectedAvatar == avatar.redAvatar){
+            return (0)
+        }  else if (this.selectedAvatar == avatar.blueAvatar){
+            return (color('#99CCFF'))
+        }  else if (this.selectedAvatar == avatar.greenAvatar){
+            return (color('#9ACD32'))
+        }  else{  
+            return (25)
+        }
+    }
+
+    private textFillUpdate(){
+        if (this.selectedAvatar == avatar.redAvatar){
+            return ('red')
+        }  else if (this.selectedAvatar == avatar.blueAvatar){
+            return ('blue')
+        }  else if (this.selectedAvatar == avatar.greenAvatar){
+            return ('green')
+        }  else{  
+            return ('white')
+        }
+    }
 
 }

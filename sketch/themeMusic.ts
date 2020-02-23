@@ -19,7 +19,7 @@ class MusicChoice {
         this.sel.size(100, 40)
         this.sel.style('font-size', '18px')
         this.sel.style('background-color', 'black')
-        this.sel.style('color', 'red')
+        this.sel.style('color', 'white')
         this.sel.style('border', 'none')
 
         this.sel.option('silence')
