@@ -11,8 +11,10 @@ class GameStatus {
 
     public levelComplete: boolean
     private gameOver: boolean
+    private theme: Theme
 
     constructor() {
+        this.theme = new Theme()
         this.segmentScore = 0
         this.score = 0
         this.level = 1
@@ -83,22 +85,19 @@ class GameStatus {
         text(("Score:" + this.segmentScore).toString(), width * 0.4, height * 0.2)
         text(("Level: " + this.level).toString(), width * 0.5, height * 0.2)
         text(("Lives: "), width * 0.59, height * 0.2)
-
+        fill('red')
         switch (this.lives) {
             case 3:
-                for (var i = 0; i < 3; i++) {
-                    fill('red')
+                for (var i = 0; i < 3; i++) {  
                     this.heart(width * 0.616 + i * 20, height * 0.191, 15)
                 }
                 break;
             case 2:
                 for (var i = 0; i < 2; i++) {
-                    fill('red')
                     this.heart(width * 0.616 + i * 20, height * 0.191, 15)
                 }
                 break;
             case 1:
-                fill('red')
                 this.heart(width * 0.616, height * 0.191, 15)
                 break;
         }

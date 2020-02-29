@@ -2,6 +2,7 @@ class GameManager {
 
     private startButton: Button
     private resetButton: Button
+    private themeButton: Button
     private quitButton: Button
     private pauseButton: Button
     private resumeButton: Button
@@ -28,6 +29,7 @@ class GameManager {
 
         this.startButton = new Button(-100, (height * 0.85), 100, 50, 10, 'Start game', 'green', this.startButtonPressed.bind(this))
         this.resetButton = new Button(10, (height * 0.85), 100, 50, 10, 'Reset name', 'red', this.resetButtonPressed.bind(this))
+        this.themeButton = new Button(-210, (height * 0.85), 100, 50, 10, 'Change theme', 'orange', this.themeButtonPressed.bind(this))
         this.resumeButton = new Button(120, (height * 0.85), 100, 50, 10, 'Resume game', 'purple', this.resumeButtonPressed.bind(this))
         this.quitButton = new Button(-100, (height * 0.9), 100, 25, 10, 'Quit', 'blue', this.quitButtonPressed.bind(this))
         this.pauseButton = new Button(10, (height * 0.9), 100, 25, 10, 'Pause', 'purple', this.pauseButtonPressed.bind(this))
@@ -61,6 +63,7 @@ class GameManager {
         //Start buttons and avatars
         this.startButton.draw(width / 2)
         this.resetButton.draw(width / 2)
+        this.themeButton.draw(width /2)
         this.redAvatarButton.draw(width / 2)
         this.blueAvatarButton.draw(width / 2)
         this.greenAvatarButton.draw(width / 2)
@@ -117,6 +120,7 @@ class GameManager {
         textSize(18)
         textFont('Arial')
         text(("Pick your music"), 90, 25)
+        
 
         let gameOver = this.gamePage.isGameOver()
         if (this.isGameRunning && !gameOver) {
@@ -152,6 +156,10 @@ class GameManager {
         localStorage.removeItem("myName")
         this.playerSettings.setMyName("")
         this.userScore = 0
+    }
+
+    private themeButtonPressed() {
+        this.theme.changeTheme()
     }
 
     /** Runs when quit button is pressed. Adds players to score table. */
@@ -195,29 +203,5 @@ class GameManager {
         this.arrayIndex = 2
         this.selectedAvatar = avatar.greenAvatar
     }
-
-    // private backgroundUpdate(){
-    //     if (this.selectedAvatar == avatar.redAvatar){
-    //         return (0)
-    //     }  else if (this.selectedAvatar == avatar.blueAvatar){
-    //         return (color('#99CCFF'))
-    //     }  else if (this.selectedAvatar == avatar.greenAvatar){
-    //         return (color('#9ACD32'))
-    //     }  else{  
-    //         return (25)
-    //     }
-    // }
-
-    // private textFillUpdate(){
-    //     if (this.selectedAvatar == avatar.redAvatar){
-    //         return ('red')
-    //     }  else if (this.selectedAvatar == avatar.blueAvatar){
-    //         return ('blue')
-    //     }  else if (this.selectedAvatar == avatar.greenAvatar){
-    //         return ('green')
-    //     }  else{  
-    //         return ('white')
-    //     }
-    // }
 
 }

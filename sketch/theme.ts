@@ -1,69 +1,51 @@
 
 class Theme {
-    
-    // private imageCategory: string
-    // private backgroundColor: string
-    // private foregroundColor: string
-    // private primaryColor: string
-    // private secondaryColor: string
-    // private neutralColor: string
-    // private warningColor: string
 
     private gameManager: GameManager
-    // private avatar: Avatar
-    private whiteBackgroundColor: number
-    private blackBackgroundColor: number
+    private i: number
+    private lightBlue: p5.color 
+    private limeGreen: p5.color
 
     constructor(gameManager) {
+        this.lightBlue = color('#99CCFF')
+        this.limeGreen = color('#9ACD32')
         this.gameManager = gameManager
-        // this.avatar = new Avatar()
         this.blackBackgroundColor = 0
         this.whiteBackgroundColor = 255
+        this.i = 0
     }
 
-    // public get whiteBackgroundColor() {
-    //     return this._whiteBackgroundColor
-    // }
-
-    /**
-     * colorTheme 
-     */
-    public setColorTheme(theme: 'cartoon' | 'water' | 'trees') {
-        if (theme == 'blackTheme') {
-            this.blackBackgroundColor = "#7A7545"
-            this.whiteBackgroundColor = "#7A7545"
-            this.blackBackgroundColor = "#7A7545"
-        }
-        if (theme == 'whiteTheme') {
-            return this.whiteBackgroundColor
-        }
-        return(50)
-    }
-
+  /** Runs every frame update. Changes background color based on integer i. */
  private backgroundUpdate(){
-   
-        if (this.gameManager.selectedAvatar == avatar.redAvatar){
+        if (this.i == 0){
             return (0)
-        }  else if (this.gameManager.selectedAvatar == avatar.blueAvatar){
-            return (color('#99CCFF'))
-        }  else if (this.gameManager.selectedAvatar == avatar.greenAvatar){
-            return (color('#9ACD32'))
+        }  else if (this.i == 1){
+            return (this.lightBlue)
+        }  else if (this.i == 2){
+            return (this.limeGreen)
         }  else{  
             return (25)
         }
     }
 
+   /** Runs every frame update. Changes text color based on integer i. */
     private textFillUpdate(){
-        if (this.selectedAvatar == avatar.redAvatar){
+        if (this.i == 0){
             return ('red')
-        }  else if (this.selectedAvatar == avatar.blueAvatar){
+        }  else if (this.i == 1){
             return ('blue')
-        }  else if (this.selectedAvatar == avatar.greenAvatar){
+        }  else if (this.i == 2){
             return ('green')
         }  else{  
             return ('white')
         }
     }
 
-
+ /** Runs every time button "Change theme" is pressed. */
+    private changeTheme(){
+       this.i++
+       if (this.i == 3){
+           this.i = 0
+       }
+    }
 }

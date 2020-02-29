@@ -2,8 +2,10 @@ class ScoreTable {
 
     private scoreTable: Array<Player>
     private listItemInPlayerTable: string
+    private theme: Theme
 
     constructor() {
+        this.theme = new Theme()
         this.listItemInPlayerTable = ''
         if (localStorage.getItem('scoretable') === null) {
             this.scoreTable = new Array
@@ -17,11 +19,11 @@ class ScoreTable {
      * Draws the score table
      */
     public draw() {
-
+      
         fill('white')
         text(this.listItemInPlayerTable, (width * 0.15), (height / 2))
         textSize(25)
-        fill('green')
+        fill('white')
         if (localStorage.getItem('scoretable') !== null) {
             text('Highest Score', (width * 0.15), (height / 3 + 10))
         }
